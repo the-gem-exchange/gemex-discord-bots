@@ -1,3 +1,5 @@
+"use strict"
+
 // Import external modules
 const fs      = require("fs");         // To read the credentials file
 const Discord = require("discord.js"); // The bot
