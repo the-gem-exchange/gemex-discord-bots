@@ -11,3 +11,4 @@ Feature requests are welcome! The easiest way for me to get to them is through t
 
 - When a new member joins the server, send welcome message
 - Command for showing server rules
+- Link to files on EC2 instance instead of on github
