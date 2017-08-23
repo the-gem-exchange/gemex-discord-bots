@@ -1,7 +1,7 @@
 # Gem Exchange Discord Bots
 
-[The Gem Exchange](https://www.furaffinity.net/user/gemexchange/)
-[Discord Server](https://discord.gg/7QqTw83)
+- [The Gem Exchange](https://www.furaffinity.net/user/gemexchange/)
+- [Discord Server](https://discord.gg/7QqTw83)
 
 # Feature Requests
 
