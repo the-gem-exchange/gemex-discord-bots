@@ -31,7 +31,7 @@ exports.initBot = () => {
 
   client.on("message", (message) => {
     // Set cmd_prefix so we can change it while testing
-    var cmd_prefix = "$"//"!";
+    var cmd_prefix = "!";
 
     // Message is a command
     if( message.content.startsWith(cmd_prefix)){
