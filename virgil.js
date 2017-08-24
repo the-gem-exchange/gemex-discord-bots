@@ -11,7 +11,7 @@ const fs      = require("fs");         // To read the credentials file
 const Discord = require("discord.js"); // The bot
 const client  = new Discord.Client();
 
-const commands_db = require("./db/commands.json");
+const db = require('./db.js');         // Database files
 
 // Read bot credentials from a file and log in
 let credentials = JSON.parse(fs.readFileSync('./client_key.json',"utf8"));
@@ -23,10 +23,10 @@ client.login(credentials.token);
 */
 exports.initBot = () => {
 
-  console.log("Bot initializing.");
+  console.log("Waking Virgil.");
 
   client.on("ready", () => {
-    console.log("Bot ready!");
+    console.log("Virgil ready!");
   });
 
   client.on("message", (message) => {
@@ -39,24 +39,22 @@ exports.initBot = () => {
       var msg_array  = message.content.split(" ");
       var channel_id = message.channel.id;
       var command    = msg_array[0].replace(cmd_prefix, "");
+      var msg = "";
 
       switch(command){
         case "commands":
-          break;
+          var bot_commands = db.getCommands("virgil")
+          msg = "Available commands for Virgil:\n"
+          for(i=0;i<bot_commands.length;i++){
+            msg += cmd_prefix+bot_commands[i].command+"\n"
+          }
+          break
         default:
-
+          msg = db.getCommand(command, "virgil")
       }
 
       message.channel.send(msg);
     }
 
   });
-};
-
-/**
-*   @function getCommand
-*   Creates an instance of the Discord bot. Should only be called on app startup.
-*/
-exports.getCommand = () => {
-
 };
