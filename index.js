@@ -1,12 +1,12 @@
 /**
 *  index.js
 *
-*  Run this file to start the Discord bot!
+*  Run this file to start all Discord bots!
 */
 
 // Internal modules
-const bot  = require('./gem-bot.js');
+const virgil  = require('./virgil.js');
 
 // Initialize the Discord Bot
-console.log("Starting Gem Exchange bot.");
-bot.initBot();
+console.log("Starting Gem Exchange bots.");
+virgil.initBot();
