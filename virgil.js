@@ -52,8 +52,10 @@ exports.initBot = () => {
         default:
           msg = db.getCommand(command, "virgil")
       }
-
-      message.channel.send(msg);
+      // Don't send empty messages
+      if(msg != ""){
+        message.channel.send(msg);
+      }
     }
 
   });

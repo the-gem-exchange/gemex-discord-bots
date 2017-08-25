@@ -23,7 +23,7 @@ exports.getCommand = (command, bot) => {
       return commands[i].reply
     }
   }
-  return "Command "+command+" does not exist for the bot "+bot+"."
+  return ""
 };
 
 
