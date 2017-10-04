@@ -2,47 +2,47 @@
   {
     "command":"angst",
     "bot":"virgil",
-    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/blob/master/assets/img/virgil/angst.png?raw=true"
+    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/angst.png"
   },
   {
     "command":"hours",
     "bot":"virgil",
-    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/blob/master/assets/img/virgil/hours.png?raw=true"
+    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/hours.png"
   },
   {
     "command":"boi",
     "bot":"virgil",
-    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/blob/master/assets/img/virgil/boi.png?raw=true"
+    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/boi.png"
   },
   {
     "command":"salad",
     "bot":"virgil",
-    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/blob/master/assets/img/virgil/salad.png?raw=true"
+    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/salad.png"
   },
   {
     "command":"magic",
     "bot":"virgil",
-    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/blob/master/assets/img/virgil/magic.png?raw=true"
+    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/magic.png"
   },
   {
     "command":"noplz",
     "bot":"virgil",
-    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/blob/master/assets/img/virgil/noplz.png?raw=true"
+    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/noplz.png"
   },
   {
     "command":"moar",
     "bot":"virgil",
-    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/blob/master/assets/img/virgil/moar.png?raw=true"
+    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/moar.png"
   },
   {
     "command":"ohsnap",
     "bot":"virgil",
-    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/blob/master/assets/img/virgil/ohsnap.png?raw=true"
+    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/ohsnap.png"
   },
   {
     "command":"gay",
     "bot":"virgil",
-    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/blob/master/assets/img/virgil/gay.png"
+    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/gay.png"
   },
 
   {
@@ -53,6 +53,6 @@
   {
     "command": "construction",
     "bot":"discord-chan",
-    "reply":"Under Construction disclaimer! Just a reminder what we're about to say may not be set in stone until an official lore page release. \n https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/blob/master/assets/img/discord-chan/construction.png?raw=true"
+    "reply":"Under Construction disclaimer! Just a reminder what we're about to say may not be set in stone until an official lore page release. \n https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/discord-chan/construction.png"
   }
 ]
