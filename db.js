@@ -19,13 +19,12 @@ exports.table = {
  */
 exports.getCommand = (command, bot) => {
   for(i=0;i<commands.length;i++){
-    if(commands[i].command == command){
+    if(commands[i].command == command && commands[i].bot == bot){
       return commands[i].reply
     }
   }
   return ""
 };
-
 
 /**
  *  @function getCommands()
