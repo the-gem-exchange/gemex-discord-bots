@@ -51,6 +51,11 @@
     "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/discord-chan/reggie.gif"
   },
   {
+    "command":"treatyoself",
+    "bot":"discord-chan",
+    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/discord-chan/treatyoself.gif"
+  },
+  {
     "command": "construction",
     "bot":"discord-chan",
     "reply":"Under Construction disclaimer! Just a reminder what we're about to say may not be set in stone until an official lore page release. \n https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/discord-chan/construction.png"
