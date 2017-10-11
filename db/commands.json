@@ -10,6 +10,11 @@
     "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/hours.png"
   },
   {
+    "command":"beautiful",
+    "bot":"virgil",
+    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/beautiful.png"
+  },
+  {
     "command":"boi",
     "bot":"virgil",
     "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/boi.png"
