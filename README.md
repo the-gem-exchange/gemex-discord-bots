@@ -1,6 +1,6 @@
 # Gem Exchange Discord Bots
 
-- [The Gem Exchange](https://www.furaffinity.net/user/gemexchange/)
+- [The Gem Exchange](http://thegemexchange.net/)
 - [Discord Server](https://discord.gg/7QqTw83)
 
 # Feature Requests
