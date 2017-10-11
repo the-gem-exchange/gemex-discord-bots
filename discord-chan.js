@@ -13,9 +13,23 @@ const client  = new Discord.Client();
 
 const db = require('./db.js');         // Database files
 
+// For getMotivationalMessage
+const motivational_images = [
+  "D_M1.png",
+  "D_M2.png",
+  "D_M3.png",
+  "D_M4.png",
+  "D_M5.png",
+  "D_M6.png",
+  "D_M7.png",
+  "D_M8.png",
+  "HythGood.png",
+  "HythGood2.png",
+];
+
 // Read bot credentials from a file and log in
-let credentials = JSON.parse(fs.readFileSync('./client_keys/discord_chan.json',"utf8"));
-// let credentials = JSON.parse(fs.readFileSync('./client_keys/test_bot.json',"utf8"));
+// let credentials = JSON.parse(fs.readFileSync('./client_keys/discord_chan.json',"utf8"));
+let credentials = JSON.parse(fs.readFileSync('./client_keys/test_bot.json',"utf8"));
 client.login(credentials.token);
 
 /**
@@ -51,6 +65,9 @@ exports.initBot = () => {
             msg += cmd_prefix+bot_commands[i].command+"\n"
           }
           break
+        case "motivate":
+          msg = getMotivationalMessage();
+          break
         default:
           msg = db.getCommand(command, "discord-chan")
       }
@@ -69,3 +86,10 @@ exports.initBot = () => {
     member.send(msg);
   });
 };
+
+function getMotivationalMessage(){
+  var random_image = motivational_images[Math.floor(Math.random()*motivational_images.length)];
+  var url = "https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/discord-chan/motivate/";
+  var msg = url + random_image;
+  return msg;
+}
