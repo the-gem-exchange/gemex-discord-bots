@@ -30,6 +30,11 @@
     "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/noplz.png"
   },
   {
+    "command":"noplz",
+    "bot":"virgil",
+    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/doubt.png"
+  },
+  {
     "command":"moar",
     "bot":"virgil",
     "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/moar.png"
