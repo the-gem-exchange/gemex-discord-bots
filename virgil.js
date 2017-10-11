@@ -15,6 +15,7 @@ const db = require('./db.js');         // Database files
 
 // Read bot credentials from a file and log in
 let credentials = JSON.parse(fs.readFileSync('./client_keys/virgil.json',"utf8"));
+// let credentials = JSON.parse(fs.readFileSync('./client_keys/test_bot.json',"utf8"));
 client.login(credentials.token);
 
 /**

@@ -15,6 +15,7 @@ const db = require('./db.js');         // Database files
 
 // Read bot credentials from a file and log in
 let credentials = JSON.parse(fs.readFileSync('./client_keys/discord_chan.json',"utf8"));
+// let credentials = JSON.parse(fs.readFileSync('./client_keys/test_bot.json',"utf8"));
 client.login(credentials.token);
 
 /**
@@ -59,5 +60,12 @@ exports.initBot = () => {
       }
     }
 
+  });
+
+  client.on("guildMemberAdd", (member) => {
+    var msg = "";
+        msg += ":sparkles: Thank you for joining The Gem-Exchange! :sparkles:\n\n We're glad you chose to give our community a try. If you have any questions or concerns, please feel free to contact any of the mods (Doritos Locos Tacos) or admins (Cheesy Gordita Crunches) and we will try to get back to you asap! If you're new, please consider checking out the server rules at <http://thegemexchange.net/discord> and perhaps writing out an intro for yourself at <#326947810203271168> so we can get to know you better. Thank you and enjoy your stay. We look forward to talking to you! \n\n";
+        msg += "https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/discord-chan/greeting.png";
+    member.send(msg);
   });
 };
