@@ -54,6 +54,27 @@
     "bot":"virgil",
     "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/gay.png"
   },
+  {
+    "command":"sweats",
+    "bot":"virgil",
+    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/sweats.png"
+  },
+  {
+    "command":"doors",
+    "bot":"virgil",
+    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/doors.png"
+  },
+  {
+    "command":"trying",
+    "bot":"virgil",
+    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/trying.png"
+  },
+  {
+    "command":"unfollow",
+    "bot":"virgil",
+    "reply":"https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/virgil/unfollow.png"
+  },
+
 
   {
     "command":"reggie",
