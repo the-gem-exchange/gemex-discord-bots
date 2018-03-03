@@ -100,5 +100,15 @@
     "command": "motivate",
     "bot": "discord-chan",
     "reply": ""
+  },
+  {
+    "command": "edit",
+    "bot": "discord-chan",
+    "reply": "To request an edit to your Stardragon design, please fill out this form: \n https://docs.google.com/forms/d/e/1FAIpQLSc0zqv3OeM6HdkLn-iWCb01UPSETTThykJagoY44mgpcH3_bw/viewform"
+  },
+  {
+    "command": "feedback",
+    "bot": "discord-chan",
+    "reply": "Have a question about the world of StarDragons? Or maybe some suggestions, or concerns you may have? Ask away and we shall do our best to answer you as soon as possible! \n https://docs.google.com/forms/d/1V6WzrkN-D3N_YOhIuOU74YntvpWcyxYZfy3dUe951X8/viewform?edit_requested=true"
   }
 ]
