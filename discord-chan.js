@@ -25,6 +25,10 @@ const motivational_images = [
   "D_M8.png",
   "HythGood.png",
   "HythGood2.png",
+  "01.jpg",
+  "02.jpg",
+  "03.jpg",
+  "04.jpg"
 ];
 
 // Read bot credentials from a file and log in
