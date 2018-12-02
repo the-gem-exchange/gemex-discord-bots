@@ -17,7 +17,7 @@ exports.table = {
  *  @input bot = The bot you are retrieving the command for
  *  @return reply = The response from the requested command
  */
-exports.getCommand = (command, bot) => {
+exports.getCommand = (command, bot = 'discord-chan') => {
   for(i=0;i<commands.length;i++){
     if(commands[i].command == command && commands[i].bot == bot){
       return commands[i].reply
