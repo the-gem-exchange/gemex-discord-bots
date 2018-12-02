@@ -73,7 +73,7 @@ exports.initBot = () => {
           msg = getMotivationalMessage();
           break
         default:
-          msg = db.getCommand(command, "discord-chan")
+          msg = db.getCommand(command, "discord-chan");
       }
       // Don't send empty messages
       if(msg != ""){
@@ -84,9 +84,7 @@ exports.initBot = () => {
   });
 
   client.on("guildMemberAdd", (member) => {
-    var msg = "";
-        msg += ":sparkles: Thank you for joining The Gem-Exchange! :sparkles:\n\n We're glad you chose to give our community a try. If you have any questions or concerns, please feel free to contact any of the mods (Doritos Locos Tacos) or admins (Cheesy Gordita Crunches) and we will try to get back to you asap! If you're new, please consider checking out the server rules at <http://thegemexchange.net/discord> and perhaps writing out an intro for yourself at <#326947810203271168> so we can get to know you better. Thank you and enjoy your stay. We look forward to talking to you! \n\n";
-        msg += "https://cdn.discordapp.com/attachments/293878589731110916/364931784296628235/D_Greeting.png";
+    msg = db.getCommand("welcome");
     member.send(msg);
   });
 };

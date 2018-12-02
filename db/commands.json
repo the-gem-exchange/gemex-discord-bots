@@ -110,5 +110,15 @@
     "command": "feedback",
     "bot": "discord-chan",
     "reply": "Have a question about the world of StarDragons? Or maybe some suggestions, or concerns you may have? Ask away and we shall do our best to answer you as soon as possible! \n https://docs.google.com/forms/d/1V6WzrkN-D3N_YOhIuOU74YntvpWcyxYZfy3dUe951X8/viewform?edit_requested=true"
+  },
+  {
+    "command":"welcome",
+    "bot":"discord-chan",
+    "reply":"Thank you for joining The Gem-Exchange! :sparkles: \n\nWe're glad you chose to give our community a try. If you have any questions or concerns, please feel free to contact any of the admins (Cheesy Gordita Crunches) and we will try to get back to you asap! If you're new, please read over the <#393126477354237953> and perhaps writing out an intro for yourself at <#326947810203271168> so we can get to know you better. Thank you and enjoy your stay. We look forward to talking to you! \n\nhttps://cdn.discordapp.com/attachments/293878589731110916/364931784296628235/D_Greeting.png"
+  },
+  {
+    "command": "lore",
+    "bot": "discord-chan",
+    "reply": "<http://www.furaffinity.net/view/27937111/>\n<https://www.deviantart.com/cuttleskulls/art/For-the-New-and-Old-767675737>"
   }
 ]
