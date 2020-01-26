@@ -9,18 +9,22 @@ const fetch   = require('node-fetch'); // To make HTTP requests to the website
 const Discord = require("discord.js"); // The bot
 const client  = new Discord.Client();
 
-const credentials = JSON.parse(fs.readFileSync('./client_keys/test_bot.json',"utf8"));
-// const credentials = JSON.parse(fs.readFileSync('./client_keys/discord_chan.json',"utf8"));
+// Local Dev
+// const credentials    = JSON.parse(fs.readFileSync('./client_keys/test_bot.json',"utf8"));
+// const command_server = 'http://localhost:8000';
+
+// Prod
+const credentials    = JSON.parse(fs.readFileSync('./client_keys/discord_chan.json',"utf8"));
+const command_server = 'https://thegemexchange.net';
 
 client.login(credentials.token);
 
-const command_server = 'https://thegemexchange.net';
-// const command_server  = 'http://localhost:8000';
 
 // These are specific commands that need to be created on the website to work.
 // All hard-coded commands will be placed here for easy reference / modification.
 const welcome_command = 'welcomemessage';
 const list_command    = 'commands';
+
 /**
 *   @function initBot
 *   Creates an instance of the Discord bot. Should only be called on app startup.
