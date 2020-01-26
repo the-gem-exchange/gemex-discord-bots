@@ -4,12 +4,14 @@
   "description": "- [The Gem Exchange](http://thegemexchange.net/)\r - [Discord Server](https://discord.gg/7QqTw83)",
   "main": "index.js",
   "dependencies": {
-    "discord.js": "^11.4.2",
-    "fs": "0.0.1-security"
+    "@discordjs/uws": "^10.149.0",
+    "discord.js": "^11.5.1",
+    "fs": "0.0.1-security",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {},
   "scripts": {
-    "start":"node index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

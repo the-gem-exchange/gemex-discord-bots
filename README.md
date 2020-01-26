@@ -1,6 +1,6 @@
-# Gem Exchange Discord Bots
+# Gem Exchange Discord Bot
 
-This repository host all the bots available on the Gem Exchange Discord Server (90% of which are memes). An up-to-date list of bot commands is always available with `!commands`.
+A DiscordJS based bot designed to retrieve its replies from a Django server via HTTP requests.
 
 # Links
 

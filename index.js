@@ -1,26 +1,12 @@
 /**
 *  index.js
 *
-*  Run this file to start all Discord bots!
+*  Run this file to start the Discord bot!
 */
 
-// Internal modules
-const virgil       = require('./virgil.js');
 const discord_chan = require('./discord-chan.js');
 
-const params = process.argv[2];
-
 // Initialize the Discord Bot
-console.log("Starting Gem Exchange bots.");
+console.log("Starting Gem Exchange Discord bot.");
 
-switch(params){
-  case "virgil":
-    virgil.initBot();
-    break;
-  case "discordchan":
-    discord_chan.initBot();
-    break;
-  default:
-    virgil.initBot();
-    discord_chan.initBot();
-}
+discord_chan.initBot();

@@ -1,40 +1,23 @@
 "use strict"
 
 /*
-  Discord Chan Bot
-
-  General purpose bot for general purpose things
+	Discord Chan Bot
 */
 
-// Import external modules
 const fs      = require("fs");         // To read the credentials file
+const fetch   = require('node-fetch'); // To make HTTP requests to the website
 const Discord = require("discord.js"); // The bot
 const client  = new Discord.Client();
 
-const db = require('./db.js');         // Database files
+const credentials = JSON.parse(fs.readFileSync('./client_keys/test_bot.json',"utf8"));
+// const credentials = JSON.parse(fs.readFileSync('./client_keys/discord_chan.json',"utf8"));
 
-// For getMotivationalMessage
-const motivational_images = [
-  "D_M1.png",
-  "D_M2.png",
-  "D_M3.png",
-  "D_M4.png",
-  "D_M5.png",
-  "D_M6.png",
-  "D_M7.png",
-  "D_M8.png",
-  "HythGood.png",
-  "HythGood2.png",
-  "01.jpg",
-  "02.jpg",
-  "03.jpg",
-  "04.jpg"
-];
-
-// Read bot credentials from a file and log in
-let credentials = JSON.parse(fs.readFileSync('./client_keys/discord_chan.json',"utf8"));
-// let credentials = JSON.parse(fs.readFileSync('./client_keys/test_bot.json',"utf8"));
 client.login(credentials.token);
+
+// These are specific commands that need to be created on the website to work.
+// All hard-coded commands will be placed here for easy reference / modification.
+const welcome_command = 'welcomemessage';
+const list_command    = 'commands';
 
 /**
 *   @function initBot
@@ -42,56 +25,90 @@ client.login(credentials.token);
 */
 exports.initBot = () => {
 
-  console.log("Waking Discord Chan.");
+	console.log("Waking Discord Chan.");
 
-  client.on("ready", () => {
-    console.log("Discord Chan ready!");
-  });
+	client.on("ready", () => {
+		console.log("Discord Chan ready!");
+	});
 
-  client.on("message", (message) => {
-    // Set cmd_prefix so we can change it while testing
-    var cmd_prefix = "!";
+	client.on("message", (message) => {
+		// This character goes before all commands (ie !foo, !bar, !etc)
+		var command_prefix = "!";
 
-    // Message is a command
-    if( message.content.startsWith(cmd_prefix)){
-      // Data we will need to reference
-      var msg_array     = message.content.split(" ");
-      var channel_id    = message.channel.id;
-      var command       = msg_array[0].replace(cmd_prefix, "");
-      var command_param = msg_array[1];
-      var msg = "";
+		// Message is a command
+		if(message.content.startsWith(command_prefix)){
+			let command = message.content.split(" ")[0].replace(command_prefix, "");
 
-      switch(command){
-        case "commands":
-          var bot_commands = db.getCommands("discord-chan");
-          msg = "Available commands for Discord Chan:\n"
-          for(i=0;i<bot_commands.length;i++){
-            msg += cmd_prefix+bot_commands[i].command+"\n"
-          }
-          break
-        case "motivate":
-          msg = getMotivationalMessage();
-          break
-        default:
-          msg = db.getCommand(command, "discord-chan");
-      }
-      // Don't send empty messages
-      if(msg != ""){
-        message.channel.send(msg);
-      }
-    }
+			// Return a list of all available commands from server
+			if(command == list_command){
+				fetchCommandMessage(list_command).then((reply) => {
+					message.channel.send(JSONtoMarkdown(reply.text));
+				});
+			}
+			// Check the website for the command and reply if it exists
+			else{
+				fetchCommandMessage(command)
+					.then((reply) => {
+						if(reply.image){
+							message.channel.send(new Discord.RichEmbed().setImage(reply.image));
+						}
+						else if(reply.text){
+							message.channel.send(JSONtoMarkdown(reply.text));
+						}
+					})
+					.catch((error) => {
+						console.error(`Error: !${command}`, error)
+					})
+			}
+		}
 
-  });
+	});
 
-  client.on("guildMemberAdd", (member) => {
-    msg = db.getCommand("welcome");
-    member.send(msg);
-  });
+	client.on("guildMemberAdd", (member) => {
+		fetchCommandMessage(welcome_command).then((reply) => {
+			member.send(JSONtoMarkdown(reply.text));
+		});
+	});
 };
 
-function getMotivationalMessage(){
-  var random_image = motivational_images[Math.floor(Math.random()*motivational_images.length)];
-  var url = "https://raw.githubusercontent.com/juan0tron/gem-exchange-bot/master/assets/img/discord-chan/motivate/";
-  var msg = url + random_image;
-  return msg;
+/**
+ *  @function fetchCommandMessage()
+ *
+ *  @input {String} command = The command name
+ *  @return {Promise} reply = The response from the requested command
+ */
+function fetchCommandMessage(command){
+	return new Promise((resolve, reject) => {
+		fetch(`http://localhost:8000/bot-commands/${command}/`)
+			// Respond with a message if the command exists
+			.then((response) => {
+				response.json()
+					.then((data) => {
+						resolve(data);
+					})
+					.catch((error) => {
+						console.error("Error parsing command JSON", error);
+						reject();
+					})
+			})
+			.catch((error) => {
+				console.error("Error fetching command", error);
+				reject();
+			});
+	});
+}
+
+/**
+ * @function JSONtoMarkdown()
+ * @description Fixes formatting errors caused by retrieving markdown text in JSON format
+ * @input {String} text = JSON formatted text
+ * @return {String} Markdown formatted text
+ */
+function JSONtoMarkdown(text){
+	let markdown = "";
+
+	// Fix escaped newline characters
+	markdown = text.replace(/\\n/g, '\n');
+
+	return markdown
 }
