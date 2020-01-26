@@ -14,11 +14,13 @@ const credentials = JSON.parse(fs.readFileSync('./client_keys/test_bot.json',"ut
 
 client.login(credentials.token);
 
+const command_server = 'https://thegemexchange.net';
+// const command_server  = 'http://localhost:8000';
+
 // These are specific commands that need to be created on the website to work.
 // All hard-coded commands will be placed here for easy reference / modification.
 const welcome_command = 'welcomemessage';
 const list_command    = 'commands';
-
 /**
 *   @function initBot
 *   Creates an instance of the Discord bot. Should only be called on app startup.
@@ -79,7 +81,7 @@ exports.initBot = () => {
  */
 function fetchCommandMessage(command){
 	return new Promise((resolve, reject) => {
-		fetch(`http://localhost:8000/bot-commands/${command}/`)
+		fetch(`${command_server}/bot-commands/${command}/`)
 			// Respond with a message if the command exists
 			.then((response) => {
 				response.json()
