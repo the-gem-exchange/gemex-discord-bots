@@ -22,7 +22,7 @@ client.login(credentials.token);
 
 // These are specific commands that need to be created on the website to work.
 // All hard-coded commands will be placed here for easy reference / modification.
-const welcome_command = 'welcomemessage';
+const welcome_command = 'welcome';
 const list_command    = 'commands';
 
 /**
@@ -55,7 +55,14 @@ exports.initBot = () => {
 			else{
 				fetchCommandMessage(command)
 					.then((reply) => {
-						if(reply.image){
+						if(reply.text && reply.image){
+							message.channel.send(
+								new Discord.RichEmbed()
+									.setDescription(JSONtoMarkdown(reply.text+'\\n'))
+									.setImage(reply.image)
+							)
+						}
+						else if(reply.image){
 							message.channel.send(new Discord.RichEmbed().setImage(reply.image));
 						}
 						else if(reply.text){
