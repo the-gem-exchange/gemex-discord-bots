@@ -79,7 +79,19 @@ exports.initBot = () => {
 
 	client.on("guildMemberAdd", (member) => {
 		fetchCommandMessage(welcome_command).then((reply) => {
-			member.send(JSONtoMarkdown(reply.text));
+			if(reply.text && reply.image){
+				member.send(
+					new Discord.RichEmbed()
+						.setDescription(JSONtoMarkdown(reply.text+'\\n'))
+						.setImage(reply.image)
+				)
+			}
+			else if(reply.image){
+				member.send(new Discord.RichEmbed().setImage(reply.image));
+			}
+			else if(reply.text){
+				member.send(JSONtoMarkdown(reply.text));
+			}
 		});
 	});
 };
