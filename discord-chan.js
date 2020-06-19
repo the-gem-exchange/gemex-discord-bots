@@ -47,9 +47,13 @@ exports.initBot = () => {
 
 			// Return a list of all available commands from server
 			if(command == list_command){
-				fetchCommandMessage(list_command).then((reply) => {
-					message.channel.send(JSONtoMarkdown(reply.text));
-				});
+				fetchCommandMessage(list_command)
+					.then((reply) => {
+						message.channel.send(JSONtoMarkdown(reply.text));
+					})
+					.catch((error) => {
+						console.error(`Error fetching command list: !${command}`, error);
+					});
 			}
 			// Check the website for the command and reply if it exists
 			else{
@@ -70,7 +74,7 @@ exports.initBot = () => {
 						}
 					})
 					.catch((error) => {
-						console.error(`Error: !${command}`, error)
+						console.error(`Error fetching command message from website: !${command}`, error);
 					})
 			}
 		}
@@ -78,21 +82,25 @@ exports.initBot = () => {
 	});
 
 	client.on("guildMemberAdd", (member) => {
-		fetchCommandMessage(welcome_command).then((reply) => {
-			if(reply.text && reply.image){
-				member.send(
-					new Discord.RichEmbed()
-						.setDescription(JSONtoMarkdown(reply.text+'\\n'))
-						.setImage(reply.image)
-				)
-			}
-			else if(reply.image){
-				member.send(new Discord.RichEmbed().setImage(reply.image));
-			}
-			else if(reply.text){
-				member.send(JSONtoMarkdown(reply.text));
-			}
-		});
+		fetchCommandMessage(welcome_command)
+			.then((reply) => {
+				if(reply.text && reply.image){
+					member.send(
+						new Discord.RichEmbed()
+							.setDescription(JSONtoMarkdown(reply.text+'\\n'))
+							.setImage(reply.image)
+					)
+				}
+				else if(reply.image){
+					member.send(new Discord.RichEmbed().setImage(reply.image));
+				}
+				else if(reply.text){
+					member.send(JSONtoMarkdown(reply.text));
+				}
+			})
+			.catch((error) => {
+				console.error("Error fetching welcome message", error);
+			});
 	});
 };
 
